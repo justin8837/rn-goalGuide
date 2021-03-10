@@ -4,14 +4,16 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
   const [enteredGoal, setEnteredGoal] = useState('');
-  const [courseGoals, setCourseGoals]=useState({});
+  const [courseGoals, setCourseGoals]=useState([]);
+
   const goalInputHandler = (enteredText) => {
     setEnteredGoal (enteredText);
-  }
+  };
+
   //use spread operators using ([]) using  => is better on react native
   const addGoalHandler = () => {
-    setCourseGoals(currentGoals => [...courseGoals, enteredGoal]);
-  }
+    setCourseGoals(currentGoals => [...currentGoals, enteredGoal]);
+  };
 
   return (
     <View stlye={styles.screen}>
@@ -25,8 +27,8 @@ export default function App() {
         />
         <Button title="add" onPress ={addGoalHandler} />
       </View>
-      <View>
-        
+      <View> 
+        {courseGoals.map((goal) => <Text key ={goal}>{goal}</Text>)}
       </View>
     </View>
   );
