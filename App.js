@@ -9,8 +9,8 @@ export default function App() {
   const [courseGoals, setCourseGoals]=useState([]);
 
   //use spread operators using ([]) using  => is better on react native
-  const addGoalHandler = () => {
-    setCourseGoals(currentGoals => [...currentGoals,{id: Math.random().toString(), value: enteredGoal}]);
+  const addGoalHandler = goalTitle => {
+    setCourseGoals(currentGoals => [...currentGoals,{id: Math.random().toString(), value: goalTitle}]);
   };
 
   return (
